@@ -41,7 +41,9 @@ const App = () => {
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography variant="h2" align="center">Video Chat</Typography>
       </AppBar>
+
       <VideoPlayer />
+      
       <Sidebar>
         <Notifications />
         <MessagesDisplayComponent />
