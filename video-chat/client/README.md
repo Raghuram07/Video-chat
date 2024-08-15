@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# React Client Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the client-side application built with React.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before running the application, ensure that you have the following installed:
 
-### `yarn start`
+- **Node.js (v16.x)**: This application requires Node.js version 16. You can download it from the [official Node.js website](https://nodejs.org/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To run the application locally, follow these steps:
 
-### `yarn test`
+1. **Clone the Repository**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+   ```
 
-### `yarn build`
+2. **Install Dependencies**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   After navigating to the project directory, install the necessary packages:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Run the Application**
 
-### `yarn eject`
+   Start the development server by running:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   npm start
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   This will execute the following script defined in `package.json`:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```json
+   "scripts": {
+     "start": "react-scripts start"
+   }
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   The application will be available at `http://localhost:3000/` by default.
 
-## Learn More
+## Building the Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To create a production-ready build of the application, run:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+This command will generate the optimized files in the `build/` directory, ready to be deployed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Additional Notes
 
-### Analyzing the Bundle Size
+- **Development Server:** The application runs on the development server with hot-reloading enabled, so any changes you make will be automatically reflected in the browser.
+- **Environment Variables:** You can configure environment variables by creating a `.env` file in the root directory. Refer to the [Create React App documentation](https://create-react-app.dev/docs/adding-custom-environment-variables/) for more information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Troubleshooting
 
-### Making a Progressive Web App
+If you encounter any issues, ensure that you are using Node.js version 16, as this application is not compatible with other versions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For additional help, consult the [React documentation](https://reactjs.org/docs/getting-started.html) or reach out to the maintainers.
