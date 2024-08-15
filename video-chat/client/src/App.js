@@ -44,8 +44,8 @@ const App = () => {
       <VideoPlayer />
       <Sidebar>
         <Notifications />
-        <MessagesDisplayComponent />
       </Sidebar>
+      <MessagesDisplayComponent />
     </div>
   );
 };

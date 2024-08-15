@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
 // Assuming you have a socket connection established elsewhere and imported here
-const socket = io.connect('ws://localhost:5000');
+const socket = io('https://video-chat-production-0903.up.railway.app/');
 
 const MessagesDisplayComponent = () => {
   const [messages, setMessages] = useState([]);
