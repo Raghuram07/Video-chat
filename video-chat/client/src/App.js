@@ -45,7 +45,9 @@ const App = () => {
       <Sidebar>
         <Notifications />
       </Sidebar>
-      <MessagesDisplayComponent />
+      <div>
+        <MessagesDisplayComponent />
+      </div>
     </div>
   );
 };

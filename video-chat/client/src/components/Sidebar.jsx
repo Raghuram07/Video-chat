@@ -38,11 +38,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Sidebar = ({ children }) => {
-  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser, sendMessage } = useContext(SocketContext);
+  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
-  const [message, setMessage] = useState('');
-
   return (
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
@@ -69,14 +67,6 @@ const Sidebar = ({ children }) => {
                   Call
                 </Button>
               )}
-            </Grid>
-            <Grid>
-              <div>
-                <TextField label="Message" fullWidth value={message} onChange={(e) => setMessage(e.target.value)} />
-                <Button variant="contained" color="primary" fullWidth onClick={() => { sendMessage(message); setMessage(''); }}>
-                  Send
-                </Button>
-              </div>
             </Grid>
           </Grid>
         </form>

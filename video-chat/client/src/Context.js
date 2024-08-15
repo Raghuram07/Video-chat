@@ -1,11 +1,10 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
+import config from './config';
 
 const SocketContext = createContext();
-
-// const socket = io('ws://localhost:5000');
-const socket = io('https://video-chat-production-0903.up.railway.app/');
+const socket = io(config.SOCKET_URL);
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
