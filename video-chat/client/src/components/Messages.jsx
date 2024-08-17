@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Button, TextField, Grid } from '@material-ui/core';
 import io from 'socket.io-client';
 import { makeStyles } from '@material-ui/core/styles';
+import { IoMdSend } from 'react-icons/io';
 import { SocketContext } from '../Context';
 import config from '../config';
 
@@ -16,16 +17,38 @@ const useStyles = makeStyles((theme) => ({
       width: '80%',
     },
   },
-  margin: {
-    marginTop: 20,
+ sendContainer:{
+    display:'flex',
+    margin:'2px',
+    padding:'5px',
+    alignItems:'center'
+ },
+textArea:{
+  margin:'5px',
+  padding:'5px',
+},
+sendButton:{
+    width: '30px',
+    height: '100%',
+    margin: '2px',
+    padding: '2px',
+    cursor: 'pointer'
+},
+msgContainer:{
+  background:'lightgrey',
+  padding:'5px',
+
+},
+message:{
+  paddingTop:'8px',
+  width: '100%',
+  transition: 'color 0.3s ease', // Smooth color transition
+  '&:hover': {
+    background: 'white', // Change this to your desired hover color
   },
-  padding: {
-    padding: 20,
-  },
-  paper: {
-    padding: '10px 20px',
-    border: '2px solid black',
-  },
+  cursor:'pointer'
+}
+
 }));
 
 const MessagesDisplayComponent = () => {
@@ -35,15 +58,10 @@ const MessagesDisplayComponent = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    // Listen for new messages
     socket.on('receiveMessage', (msg) => {
-      // eslint-disable-next-line
-      console.log('New message received:', msg);
-      // Update the state with the new message
       setMessages((prevMessages) => [...prevMessages, msg]);
     });
 
-    // Cleanup on component unmount
     return () => {
       socket.off('receiveMessage');
     };
@@ -52,21 +70,25 @@ const MessagesDisplayComponent = () => {
   return (
     <div className={classes.container}>
       <Grid>
-        <div>
-          <TextField label="Message" fullWidth value={message} onChange={(e) => setMessage(e.target.value)} />
-          <Button variant="contained" color="primary" fullWidth onClick={() => { sendMessage(message); setMessage(''); }}>
-            Send
-          </Button>
+        <div className={classes.msgContainer}>
+        
+            {messages.map((msg, index) => (
+              <div className={classes.message}>
+              <p key={index}>
+              <strong style={{ color: 'blue' }}>RRR: </strong>
+              {msg}
+              </p>
+              </div>
+            ))}
+          
+        </div>
+
+        <div className={classes.sendContainer}>
+          <TextField className={classes.textArea} label="Message" fullWidth value={message} onChange={(e) => setMessage(e.target.value)} />
+          <IoMdSend className={classes.sendButton} onClick={() => { sendMessage(message); setMessage(''); }} />
         </div>
       </Grid>
-      <div>
-        <h2>Received Messages</h2>
-        <ul>
-          {messages.map((msg, index) => (
-            <li key={index}>{msg}</li>
-          ))}
-        </ul>
-      </div>
+
     </div>
   );
 };
